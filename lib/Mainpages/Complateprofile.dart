@@ -128,19 +128,19 @@ class _CompleteProfileState extends State<CompleteProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            AppBar(
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              title: const Text(
-                'Complate Your Profile',
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
+      body: Column(
+        children: [
+          AppBar(
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            title: const Text(
+              'Complate Your Profile',
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
-            Expanded(
+          ),
+          SingleChildScrollView(
+            child: Expanded(
               child: ListView(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
@@ -198,8 +198,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
