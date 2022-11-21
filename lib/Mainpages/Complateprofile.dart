@@ -128,76 +128,78 @@ class _CompleteProfileState extends State<CompleteProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: Column(
-        children: [
-          AppBar(
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: const Text(
-              'Complate Your Profile',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            AppBar(
+              backgroundColor: Colors.transparent,
+              centerTitle: true,
+              title: const Text(
+                'Complate Your Profile',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              children: [
-                const SizedBox(
-                  height: 5,
-                ),
-                Expanded(
-                  child: CupertinoButton(
-                    onPressed: () {
-                      showPhotoOptions();
-                    },
-                    padding: const EdgeInsets.all(0),
-                    child: CircleAvatar(
-                      radius: 60,
-                      backgroundImage:
-                          (imageFile != null) ? FileImage(imageFile!) : null,
-                      child: (imageFile == null)
-                          ? const Icon(
-                              Icons.person,
-                              size: 60,
-                            )
-                          : null,
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: CupertinoButton(
+                      onPressed: () {
+                        showPhotoOptions();
+                      },
+                      padding: const EdgeInsets.all(0),
+                      child: CircleAvatar(
+                        radius: 60,
+                        backgroundImage:
+                            (imageFile != null) ? FileImage(imageFile!) : null,
+                        child: (imageFile == null)
+                            ? const Icon(
+                                Icons.person,
+                                size: 60,
+                              )
+                            : null,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: TextField(
-                      controller: fullNameController,
-                      decoration: const InputDecoration(
-                          hintText: 'Full Name',
-                          labelText: 'Enter Your Full Name',
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            borderSide: BorderSide(color: Colors.black),
-                          ))),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomFormButton(
-                  innerText: 'Submit',
-                  onPressed: checkValues,
-                ),
-              ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: TextField(
+                        controller: fullNameController,
+                        decoration: const InputDecoration(
+                            hintText: 'Full Name',
+                            labelText: 'Enter Your Full Name',
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                              borderSide: BorderSide(color: Colors.black),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                              borderSide: BorderSide(color: Colors.black),
+                            ))),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomFormButton(
+                    innerText: 'Submit',
+                    onPressed: checkValues,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
